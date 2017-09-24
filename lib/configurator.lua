@@ -20,6 +20,10 @@ local function create_button(id, x1, y1, x2, y2, callback)
     buttons[id].fn = callback
 end
 
+local function button_handler(_, address, x, y, button, player)
+    print(address, x, y, button, player)
+end
+
 -- Set resolution to maximum
 gpu.setResolution(max_x, max_y)
 
@@ -29,12 +33,10 @@ gpu.fill(1, 1, max_x, max_y, " ")
 -- Create test screen
 create_button("one", 2, 2, 6, 6, function () print("Ayy") end)
 
+ev.listen("touch", button_handler)
+
 while ev.pull(1, "interrupted") == nil do
-    local _, _, x, y, a = ev.pull(0, "touch")
-    print(x, y, a)
-    for k, v in pairs(buttons) do
-        
-    end
+
 end
 
 
