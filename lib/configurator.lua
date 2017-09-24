@@ -25,7 +25,7 @@ end
 
 local function button_handler(address, x, y, button, player)
     for k, v in pairs(buttons) do
-        if x >= v.x1 and x <= v.x2 and y >= v.y1 and y <= v.y2 then
+        if button == 0 and x >= v.x1 and x <= v.x2 and y >= v.y1 and y <= v.y2 then
             v.fn()
         end
     end
@@ -38,7 +38,7 @@ gpu.setResolution(max_x, max_y)
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", 2, 2, 6, 6, function () print("Ayy") end)
+create_button("one", 2, 2, 6, 6, function () gpu.set(8, 4, "Ayy") end)
 
 -- Install button handler
 ev = EventLoop()
