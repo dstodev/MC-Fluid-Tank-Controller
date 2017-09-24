@@ -14,7 +14,7 @@ local max_x, max_y = gpu.maxResolution()
 
 -- Functions
 local function create_button(id, x1, y1, x2, y2, callback)
-    gpu.fill(x1, y1, x2 - x1, y2 - y1, "█")
+    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, "█")
     buttons[id] = {}
     buttons[id].x1 = x1
     buttons[id].y1 = y1
@@ -25,7 +25,7 @@ end
 
 local function button_handler(address, x, y, button, player)
     for k, v in pairs(buttons) do
-        if x >= v.x1 and x <= v.x2 and y >= v.y1 and y < v.y2 then
+        if x >= v.x1 and x <= v.x2 and y >= v.y1 and y <= v.y2 then
             v.fn()
         end
     end
