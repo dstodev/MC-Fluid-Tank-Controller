@@ -2,7 +2,7 @@
 local cm = require("component")
 
 -- My Lib
-local EventLoop = require("lib/evloop")
+local EventLoop = require("lib/event_loop")
 
 -- Components
 local gpu = cm.gpu
