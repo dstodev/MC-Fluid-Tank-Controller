@@ -1,5 +1,6 @@
 -- OpenComputers Lib
 local cm = require("component")
+local os = require("os")
 
 -- My Lib
 local EventLoop = require("lib/event_loop")
@@ -40,6 +41,7 @@ create_button("one", 2, 2, 6, 6, function () print("Ayy") end)
 
 -- Install button handler
 ev = EventLoop()
+ev:register("interrupted", function () os.exit() end)
 ev:register("touch", button_handler)
 
 -- Run event loop

@@ -23,8 +23,6 @@ function EventLoop.new()
 end
 
 function EventLoop:run()
-    print("in run")
-
     self._running = true
 
     while self._running do
@@ -33,7 +31,6 @@ function EventLoop:run()
 end
 
 function EventLoop:register(event, callback)
-    print("in register")
     self._events[event] = callback
 end
 
