@@ -23,17 +23,17 @@ function EventLoop.new()
 end
 
 function EventLoop:run()
+    print("in run")
+
     self._running = true
 
-    print(self._running)
-
     while self._running do
-        print("inside loop")
         self:_handle(ev.pull())
     end
 end
 
 function EventLoop:register(event, callback)
+    print("in register")
     self._events[event] = callback
 end
 
