@@ -23,6 +23,8 @@ function EventLoop.new()
 end
 
 function EventLoop:run()
+    self._running = true
+    
     while self._running do
         self:handle(ev.pull())
     end
