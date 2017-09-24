@@ -10,7 +10,7 @@ fs.makeDirectory(path_lib)
 local URL = "https://raw.githubusercontent.com/dstodev/MC-Fluid-Tank-Controller/master/lib/"
 
 function getlib(file)
-  local status, error = sh.execute("wget " .. URL .. file .. " " .. path_lib .. " " .. file)
+  local status, error = sh.execute("wget -f" .. URL .. file .. " " .. path_lib .. " " .. file)
   if status == false then
     error("Could not retrieve " .. file)
   end
