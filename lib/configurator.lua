@@ -31,7 +31,10 @@ create_button("one", 2, 2, 6, 6, function () print("Ayy") end)
 
 while ev.pull(1, "interrupted") == nil do
     for k, v in pairs(buttons) do
-
+        print(k)
+        for k2, v2 in pairs(v) do
+            print(k2, v2)
+        end
     end
 end
 
