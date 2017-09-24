@@ -25,9 +25,10 @@ end
 
 local function button_handler(address, x, y, button, player)
     for k, v in pairs(buttons) do
-        print(v.x1, v.y1, v.x2, v.y2)
+        if x >= v.x1 and x <= v.x2 and y >= v.y1 and y < v.y2 then
+            v.fn()
+        end
     end
-    print(address, x, y, button, player)
 end
 
 -- Set resolution to maximum
