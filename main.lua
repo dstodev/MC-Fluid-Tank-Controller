@@ -3,20 +3,25 @@ local sh = require("shell")
 local fs = require("filesystem")
 
 -- Make library folder
-path_lib = sh.resolve("lib") .. "/"
+local path_lib = sh.resolve("lib") .. "/"
 fs.makeDirectory(path_lib)
+
+-- Config
+local URL = "https://raw.githubusercontent.com/dstodev/MC-Fluid-Tank-Controller/master/lib/"
+
+function getlib(file)
+  local status, error = sh.execute("wget " .. URL .. file .. " " .. path_lib .. " " .. file)
+  if status == false then
+    error("Could not retrieve " .. file)
+  end
+end
 
 -- Get external libraries
 -- Schmitt trigger
-status, error = sh.execute("pastebin get -f 2nvWB7nz " .. path_lib .. "trigger.lua")
-if status == false then
-  error("Could not retrieve trigger: " .. error)
-end
+getlib("schmitt_trigger.lua")
+-- Tank controller
+getlib("tank_control.lua")
+-- Screen configurator
+getlib("configurator.lua")
 
--- (Main) tank controller
-status, error = sh.execute("pastebin get -f BPNMffHM " .. path_lib .. "tank_control.lua")
-if status == false then
-  error("Could not retrieve tank_control: " .. error)
-end
-
-status, error = sh.execute("lib/tank_control.lua")
+local status, error = sh.execute("lib/tank_control.lua")
