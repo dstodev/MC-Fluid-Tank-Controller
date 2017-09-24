@@ -25,7 +25,10 @@ end
 function EventLoop:run()
     self._running = true
 
+    print(self._running)
+
     while self._running do
+        print("inside loop")
         self:_handle(ev.pull())
     end
 end
