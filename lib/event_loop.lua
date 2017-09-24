@@ -24,9 +24,9 @@ end
 
 function EventLoop:run()
     self._running = true
-    
+
     while self._running do
-        self:handle(ev.pull())
+        self:_handle(ev.pull())
     end
 end
 
