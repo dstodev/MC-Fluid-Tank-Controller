@@ -22,7 +22,7 @@ local function create_button(id, x1, y1, x2, y2, callback)
     buttons[id].fn = callback
 end
 
-local function button_handler(_, address, x, y, button, player)
+local function button_handler(address, x, y, button, player)
     for k, v in pairs(buttons) do
         print(v.x1, v.y1, v.x2, v.y2)
     end
