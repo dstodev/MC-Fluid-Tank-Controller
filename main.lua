@@ -20,6 +20,7 @@ end
 getlib("schmitt_trigger.lua")
 getlib("tank_control.lua")
 getlib("configurator.lua")
+getlib("evloop.lua")
 
 -- Start the program
 local status, config = sh.execute("lib/configurator.lua")

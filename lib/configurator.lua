@@ -1,6 +1,8 @@
 -- OpenComputers Lib
 local cm = require("component")
-local ev = require("event")
+
+-- My Lib
+local EventLoop = require("lib/evloop")
 
 -- Components
 local gpu = cm.gpu
@@ -37,10 +39,8 @@ gpu.fill(1, 1, max_x, max_y, " ")
 create_button("one", 2, 2, 6, 6, function () print("Ayy") end)
 
 -- Install button handler
-ev.listen("touch", button_handler)
+ev = EventLoop()
+ev:register("touch", button_handler)
 
-while ev.pull(1, "interrupted") == nil do
-
-end
-
-
+-- Run event loop
+ev:run()
