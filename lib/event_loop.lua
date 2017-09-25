@@ -40,7 +40,7 @@ end
 
 function EventLoop:_handle(event, ...)
     if event and self._events[event] then
-        self._events[event](...)
+        self:_events[event](...)
     end
 end
 

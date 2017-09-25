@@ -45,7 +45,7 @@ local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, l
     buttons[id].fn = callback
 end
 
-local function button_handler(address, x, y, button, player)
+local function button_handler(_, address, x, y, button, player)
     for k, v in pairs(buttons) do
         if button == 0 and x >= v.x1 and x <= v.x2 and y >= v.y1 and y <= v.y2 then
             v.fn()
@@ -67,7 +67,7 @@ create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, max_x - 1, 6, 6, 0
 
 -- Install button handler
 ev = EventLoop()
-ev:register("interrupted", function () os.exit() end)
+ev:register("interrupted", function (self) self._running = false end)
 ev:register("touch", button_handler)
 
 -- Run event loop
