@@ -13,8 +13,9 @@ local buttons = {}
 local max_x, max_y = gpu.maxResolution()
 
 -- Functions
-local function create_button(id, x1, y1, x2, y2, callback)
-    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, "█")
+local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color)
+    gpu.setBackground(bg_color)
+    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ")
     buttons[id] = {}
     buttons[id].x1 = x1
     buttons[id].y1 = y1
@@ -38,7 +39,7 @@ gpu.setResolution(max_x, max_y)
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", 2, 2, 6, 6, function () gpu.set(8, 4, "Ayy") end)
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6, 0x180208)
 
 -- Install button handler
 ev = EventLoop()

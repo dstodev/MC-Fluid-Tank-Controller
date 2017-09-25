@@ -34,6 +34,10 @@ function EventLoop:register(event, callback)
     self._events[event] = callback
 end
 
+function EventLoop:deregister(event)
+    self._events[event] = nil
+end
+
 function EventLoop:_handle(event, ...)
     if event and self._events[event] then
         self._events[event](...)
