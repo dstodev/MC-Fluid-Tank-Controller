@@ -63,7 +63,7 @@ gpu.setDepth(gpu.maxDepth())
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 3, max_x - 2, 6, 6, 0x180208, 0xFFFFFF, "Begin!")
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 3, 6, max_x - 2, 6, 0x4020FF, 0xFFFFFF, "Begin!")
 
 -- Install button handler
 ev = EventLoop()
