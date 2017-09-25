@@ -16,7 +16,7 @@ local max_x, max_y = gpu.maxResolution()
 local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, label)
     -- Draw button
     gpu.setForeground(bg_color)
-    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ")
+    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, "█")
 
     -- Draw label
     gpu.setBackground(bg_color)
