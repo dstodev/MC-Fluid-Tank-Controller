@@ -21,15 +21,16 @@ local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, l
     -- Set default parameters
     bg_color = bg_color or 0xFFFFFF
     fg_color = fg_color or 0x000000
-    label = label or ""
 
     -- Draw button
     gpu.setBackground(bg_color)
     gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ") -- █
 
     -- Draw label
-    gpu.setForeground(fg_color)
-    gpu.set(x1 + (x2 - x1) / 2 - #label / 2, y1 + (y2 - y1) / 2, label)
+    if label then
+        gpu.setForeground(fg_color)
+        gpu.set(x1 + (x2 - x1) / 2 - #label / 2, y1 + (y2 - y1) / 2, label)
+    end
 
     -- Restore color settings
     gpu.setBackground(bg)
