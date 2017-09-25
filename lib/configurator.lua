@@ -24,7 +24,7 @@ local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, l
 
     -- Draw button
     gpu.setBackground(bg_color)
-    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ") -- █
+    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ")
 
     -- Draw label
     if label then
@@ -63,7 +63,7 @@ gpu.setDepth(gpu.maxDepth())
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 3, 2, max_x - 2, 6, 0x4020FF, 0xFFFFFF, "Begin!")
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 3, 2, max_x - 2, max_y / 4 - 2, 0x4020FF, 0xFFFFFF, "Begin!")
 
 -- Install button handler
 ev = EventLoop()
