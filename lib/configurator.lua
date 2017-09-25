@@ -15,11 +15,10 @@ local max_x, max_y = gpu.maxResolution()
 -- Functions
 local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, label)
     -- Draw button
-    gpu.setForeground(bg_color)
-    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, "█")
+    gpu.setBackground(bg_color)
+    gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ") -- █
 
     -- Draw label
-    gpu.setBackground(bg_color)
     gpu.setForeground(fg_color)
     gpu.set((x2 - x1) / 2 - #label / 2, (y2 - y1) / 2, label)
 
@@ -47,7 +46,7 @@ gpu.setResolution(max_x, max_y)
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6, 0x000000, 0xFFFFFF, "test") -- 0x180208
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6, 0xFFFFFF, 0x000000, "test") -- 0x180208
 
 -- Install button handler
 ev = EventLoop()
