@@ -67,7 +67,7 @@ create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, max_x - 1, 6, 6, 0
 
 -- Install button handler
 ev = EventLoop()
-ev:register("interrupted", function (self) self._running = false end)
+ev:register("interrupted", function (loop) loop:stop() end)
 ev:register("touch", button_handler)
 
 -- Run event loop

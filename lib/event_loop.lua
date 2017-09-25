@@ -30,6 +30,10 @@ function EventLoop:run()
     end
 end
 
+function EventLoop:stop()
+    self._running = false
+end
+
 function EventLoop:register(event, callback)
     if event and callback then
         self._events[event] = callback
