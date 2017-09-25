@@ -14,13 +14,21 @@ local max_x, max_y = gpu.maxResolution()
 
 -- Functions
 local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, label)
+    -- Save color settings
+    local bg = gpu.getBackground()
+    local fg = gpu.getForeground()
+
     -- Draw button
     gpu.setBackground(bg_color)
     gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ") -- █
 
     -- Draw label
     gpu.setForeground(fg_color)
-    gpu.set((x2 - x1) / 2 - #label / 2, (y2 - y1) / 2, label)
+    gpu.set(x1 + (x2 - x1) / 2 - #label / 2, y1 + (y2 - y1) / 2, label)
+
+    -- Restore color settings
+    gpu.setBackground(bg)
+    gpu.setBackground(fg)
 
     -- Record information for button handler
     buttons[id] = {}
