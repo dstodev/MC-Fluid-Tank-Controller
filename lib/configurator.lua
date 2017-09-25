@@ -60,7 +60,7 @@ gpu.setResolution(max_x, max_y)
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6) -- 0x180208
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, max_x - 1, 6, 6, 0x180208, 0x000000, "Begin!")
 
 -- Install button handler
 ev = EventLoop()
