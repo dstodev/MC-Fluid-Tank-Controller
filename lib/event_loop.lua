@@ -31,16 +31,20 @@ function EventLoop:run()
 end
 
 function EventLoop:register(event, callback)
-    self._events[event] = callback
+    if event and callback then
+        self._events[event] = callback
+    end
 end
 
 function EventLoop:deregister(event)
-    self._events[event] = nil
+    if event then
+        self._events[event] = nil
+    end
 end
 
 function EventLoop:_handle(event, ...)
     if event and self._events[event] then
-        self:_events[event](...)
+        self._events[event](self, ...)
     end
 end
 
