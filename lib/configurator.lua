@@ -18,6 +18,11 @@ local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, l
     local bg = gpu.getBackground()
     local fg = gpu.getForeground()
 
+    -- Set default parameters
+    bg_color = bg_color or 0xFFFFFF
+    fg_color = fg_color or 0x000000
+    label = label or ""
+
     -- Draw button
     gpu.setBackground(bg_color)
     gpu.fill(x1, y1, x2 - x1 + 1, y2 - y1 + 1, " ") -- █
@@ -54,7 +59,7 @@ gpu.setResolution(max_x, max_y)
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6, 0xFFFFFF, 0x000000, "test") -- 0x180208
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, 2, 6, 6) -- 0x180208
 
 -- Install button handler
 ev = EventLoop()
