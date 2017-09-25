@@ -28,7 +28,7 @@ local function create_button(id, callback, x1, y1, x2, y2, bg_color, fg_color, l
 
     -- Restore color settings
     gpu.setBackground(bg)
-    gpu.setBackground(fg)
+    gpu.setForeground(fg)
 
     -- Record information for button handler
     buttons[id] = {}
