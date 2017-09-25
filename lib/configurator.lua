@@ -56,11 +56,14 @@ end
 -- Set resolution to maximum
 gpu.setResolution(max_x, max_y)
 
+-- Set to maximum color depth
+gpu.setDepth(gpu.maxDepth())
+
 -- Clear the screen
 gpu.fill(1, 1, max_x, max_y, " ")
 
 -- Create test screen
-create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, max_x - 1, 6, 6, 0x180208, 0x000000, "Begin!")
+create_button("one", function () gpu.set(8, 4, "Ayy") end, 2, max_x - 1, 6, 6, 0x180208, 0xFFFFFF, "Begin!")
 
 -- Install button handler
 ev = EventLoop()
